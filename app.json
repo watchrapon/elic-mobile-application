@@ -1,27 +1,44 @@
 {
   "expo": {
-    "name": "mojostar",
-    "slug": "mojostar",
+    "name": "Elic",
+    "slug": "Elic",
+    "scheme": "Elic",
+    "owner": "mojo093",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/elic.jpg",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/eliclogo.jpeg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/elic2.jpg",
         "backgroundColor": "#ffffff"
+      },
+      "package": "com.mojo093.Elic",
+      "config": {
+        "googleSignIn": {
+          "apiKey": "AIzaSyDzP0rqE4yUZodTk2wgVxaBJpWg_AhH63k",
+          "certificateHash": "433334288159-nv8ul6n4n5n9pvr3nbbfhl7bk12fpt1d"
+        }
       }
     },
+    "scheme": "com.mojo093.Elic",
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/elic.jpg"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e195bde7-6ef7-4a07-9b79-0111d1d8f0c4"
+      }
     }
+    
   }
 }
