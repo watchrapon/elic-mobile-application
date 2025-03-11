@@ -113,7 +113,8 @@ const TranslationGame = () => {
       return;
     }
 
-    // Add picker disable logic here
+    // Set game in progress and disable pickers when submitting
+    setIsGameInProgress(true);
     setIsPickersDisabled(true);
     setIsLoading(true);
 
@@ -299,6 +300,14 @@ const TranslationGame = () => {
     fadeInNewSentence();
   };
 
+  // Add a function to handle resetting the sentence
+  const handleResetSentence = () => {
+    if (!isGameInProgress) {
+      fetchSentence();
+      fadeInNewSentence();
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.mainContainer}>
@@ -312,7 +321,7 @@ const TranslationGame = () => {
               <Text style={styles.statText}>Round: {round}</Text>
             </View>
             <View style={styles.statItem}>
-              <FontAwesome5 name="star" size={20} color="#FFD700" />
+              <FontAwesome5 name="trophy" size={20} color="#FFD700" />
               <Text style={styles.statText}>Average: {calculateAverageScore()}%</Text>
             </View>
           </View>
@@ -350,7 +359,18 @@ const TranslationGame = () => {
           </View>
 
           <Animated.View style={[styles.sentenceContainer, { opacity: fadeAnim }]}>
-            <Text style={styles.label}>Mission:</Text>
+            <View style={styles.sentenceHeaderContainer}>
+              <Text style={styles.label}>Mission:</Text>
+              {!isGameInProgress && (
+                <TouchableOpacity 
+                  style={styles.resetButton}
+                  onPress={handleResetSentence}
+                >
+                  <FontAwesome5 name="sync" size={16} color="#FFFFFF" />
+                  <Text style={styles.resetButtonText}>Reset Sentence</Text>
+                </TouchableOpacity>
+              )}
+            </View>
             <Text style={styles.sentence}>{sentence}</Text>
           </Animated.View>
 
@@ -358,7 +378,7 @@ const TranslationGame = () => {
             style={styles.input}
             value={translation}
             onChangeText={handleTranslationInput}
-            placeholder="กรอกคำแปลภาษาอังกฤษที่นี่"
+            placeholder="Enter English translation here."
             placeholderTextColor="#666"
             multiline
           />
@@ -385,15 +405,12 @@ const TranslationGame = () => {
           <Animated.View style={[styles.scoreContainer, { transform: [{ scale: scaleAnim }] }]}>
             {accuracy !== null && (
               <>
-                <FontAwesome5 name="star" size={24} color="#FFD700" />
+                <FontAwesome5 name="map-pin" size={24} color="#FFD700" />
                 <Text style={styles.score}>Last Score: {accuracy}%</Text>
               </>
             )}
           </Animated.View>
-          <View style={styles.averageScoreContainer}>
-            <FontAwesome5 name="trophy" size={24} color="#FFD700" />
-            <Text style={styles.averageScore}>Average Score: {calculateAverageScore()}%</Text>
-          </View>
+          
         </ScrollView>
         
       </View>
@@ -613,13 +630,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,
-  },
-  averageScore: {
-    fontSize: 20,
-    color: '#85603F',
-    textAlign: 'center',
-    marginLeft: 10,
-    fontWeight: 'bold',
   },
   mainContainer: {
     flex: 1,
@@ -960,6 +970,27 @@ const styles = StyleSheet.create({
   feedbackScroll: {
     maxHeight: 300,
     width: '100%',
+  },
+  sentenceHeaderContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  resetButton: {
+    backgroundColor: '#85603F',
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 15,
+    elevation: 2,
+  },
+  resetButtonText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginLeft: 6,
   },
 });
 

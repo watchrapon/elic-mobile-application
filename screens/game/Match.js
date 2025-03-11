@@ -448,7 +448,7 @@ const MatchGame = ({ }) => {
                       delay={800}
                       style={styles.trophyContainer}
                     >
-                      <MaterialCommunityIcons name="timer-off-outline" size={50} color="#FF6B6B" />
+                      <MaterialCommunityIcons name="trophy-outline" size={50} color="#FFB700" />
                     </Animatable.View>
 
                     <Animatable.Text 
@@ -456,38 +456,38 @@ const MatchGame = ({ }) => {
                       delay={1000}
                       style={styles.timeUpText}
                     >
-                      Time's Up!
+                      Time's up !
                     </Animatable.Text>
 
-                    <View style={styles.scoreDetails}>
-                      <Animatable.View 
-                        animation="fadeInLeft"
-                        delay={1200}
-                        style={styles.scoreItem}
-                      >
-                        <Text style={styles.scoreLabel}>Score</Text>
-                        <Text style={styles.scoreBig}>{score}</Text>
-                      </Animatable.View>
-
-                      <Animatable.View 
-                        animation="fadeInRight"
-                        delay={1200}
-                        style={styles.scoreItem}
-                      >
-                        <Text style={styles.scoreLabel}>Matches</Text>
-                        <Text style={styles.scoreBig}>{totalMatches}</Text>
-                      </Animatable.View>
-                    </View>
-
-                    {translationMessage && (
-                      <Animatable.Text 
-                        animation="fadeInUp"
-                        delay={1400}
-                        style={styles.messageText}
-                      >
-                        {translationMessage}
-                      </Animatable.Text>
-                    )}
+                    <Animatable.View 
+                      animation="fadeIn"
+                      delay={1100}
+                      style={styles.scoreContainer}
+                    >
+                      <Text style={styles.scoreLabel}>score</Text>
+                      <Text style={styles.finalScore}>{score}</Text>
+                      
+                      {userHighScore > 0 && (
+                        <View style={styles.bestScoreContainer}>
+                          <MaterialCommunityIcons name="crown" size={22} color="#FFB700" />
+                          <Text style={styles.bestScore}>
+                            Hight Score: {userHighScore}
+                          </Text>
+                        </View>
+                      )}
+                      
+                      {score > 0 && score >= userHighScore && (
+                        <Animatable.View 
+                          animation="pulse" 
+                          iterationCount="infinite"
+                          style={styles.newRecordBadge}
+                        >
+                          <Text style={styles.newRecordText}>
+                            คะแนนใหม่!
+                          </Text>
+                        </Animatable.View>
+                      )}
+                    </Animatable.View>
 
                     <Animatable.View 
                       animation="fadeInUp"
@@ -503,7 +503,7 @@ const MatchGame = ({ }) => {
                           style={styles.buttonGradient}
                         >
                           <MaterialCommunityIcons name="reload" size={24} color="#fff" />
-                          <Text style={styles.buttonText}>Play Again</Text>
+                          <Text style={styles.buttonText}>Play again</Text>
                         </LinearGradient>
                       </TouchableOpacity>
                     </Animatable.View>
@@ -858,7 +858,7 @@ const styles = StyleSheet.create({
     width: 90,
     height: 90,
     borderRadius: 45,
-    backgroundColor: 'rgba(255,107,107,0.1)',
+    backgroundColor: 'rgba(255,183,0,0.1)',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
@@ -870,29 +870,56 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     fontFamily: 'Comic Sans MS',
   },
-  scoreDetails: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: '100%',
-    marginBottom: 24,
-  },
-  scoreItem: {
+  scoreContainer: {
     alignItems: 'center',
-    padding: 16,
+    padding: 20,
     backgroundColor: '#f8f8f8',
     borderRadius: 16,
-    minWidth: 120,
+    width: '100%',
+    marginBottom: 24,
+    borderWidth: 1,
+    borderColor: '#eaeaea',
   },
   scoreLabel: {
-    fontSize: 16,
+    fontSize: 18,
     color: '#666',
     marginBottom: 8,
     fontFamily: 'Comic Sans MS',
   },
-  scoreBig: {
-    fontSize: 36,
+  finalScore: {
+    fontSize: 64,
     fontWeight: 'bold',
     color: '#333',
+    fontFamily: 'Comic Sans MS',
+    marginBottom: 12,
+  },
+  bestScoreContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 8,
+    paddingTop: 12,
+    borderTopWidth: 1,
+    borderTopColor: '#e0e0e0',
+  },
+  bestScore: {
+    fontSize: 18,
+    color: '#666',
+    fontFamily: 'Comic Sans MS',
+    marginLeft: 8,
+  },
+  newRecordBadge: {
+    backgroundColor: '#FFB700',
+    paddingHorizontal: 16,
+    paddingVertical: 6,
+    borderRadius: 20,
+    position: 'absolute',
+    top: -12,
+    right: -12,
+  },
+  newRecordText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 14,
     fontFamily: 'Comic Sans MS',
   },
   messageText: {
