@@ -130,7 +130,7 @@ const ForgotPassword = ({}) => {
               {isLoading ? (
                 <ActivityIndicator size="small" color="#303233" />
               ) : (
-                <Text style={styles.text2}>Send Code</Text>
+                <Text style={styles.text2}>Send</Text>
               )}
             </TouchableOpacity>
           </>
