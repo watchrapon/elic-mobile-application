@@ -17,7 +17,7 @@ const ROLE_DESCRIPTIONS = {
 export const CHATBOT_ROLES = [
   { label: 'การจองโรงแรมกับพนักงานโรงแรม ', value: 'hotel' },
   { label: 'การสั่งอาหารในร้าน', value: 'restaurant' },
-  { label: 'การสั่งอาหารในร้าน', value: 'interview' },
+  { label: 'การสัมภาษณ์งาน', value: 'interview' },
   { label: 'การสนทนาเมื่อไปพบแพทย์', value: 'doctor' },
   { label: 'การแนะนำตัวเองกับเพื่อนใหม่', value: 'new_friend' },
   { label: 'การพูดคุยกับคนขับแท็กซี่', value: 'taxi' },

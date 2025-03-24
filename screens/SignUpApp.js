@@ -301,7 +301,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginBottom: 10,
     marginHorizontal: 30,
-
     backgroundColor: '#EAE7DB',
     borderRadius: 8,
     paddingLeft: 4,
@@ -311,7 +310,8 @@ const styles = StyleSheet.create({
     elevation: 4,
     marginLeft: 38,
     marginRight: 40,
-    marginTop: 5
+    marginTop: 5,
+    height: 40,
   },
   row: {
     height: 333,

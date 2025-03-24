@@ -348,7 +348,7 @@ const styles = StyleSheet.create({
     elevation: 4,
     paddingLeft: 4,
     alignItems: 'center',
-
+    height: 40,
     paddingHorizontal: 12,
     textAlign: 'left',
   },
@@ -369,7 +369,7 @@ const styles = StyleSheet.create({
     marginRight: 41,
     marginTop: 8,
     alignItems: 'center',
-
+    height: 40,
     paddingHorizontal: 12,
     textAlign: 'left',
   },

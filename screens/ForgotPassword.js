@@ -258,6 +258,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     textAlign: 'left',
+    height: 40,
   },
   input2: {
     color: '#3B3030',
