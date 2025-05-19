@@ -1,6 +1,6 @@
 # ELIC Mobile Application
 
-![ELIC Logo](https://via.placeholder.com/400x200?text=ELIC+App+Logo) ELIC (English Language Improvement Chatbot) เป็นแอปพลิเคชันมือถือที่ช่วยให้ผู้ใช้พัฒนาทักษะภาษาอังกฤษผ่านการสนทนาโต้ตอบกับ AI ด้วยฟังก์ชันที่หลากหลายและปรับแต่งได้
+(English Language Improvement Chatbot) เป็นแอปพลิเคชันมือถือที่ช่วยให้ผู้ใช้พัฒนาทักษะภาษาอังกฤษผ่านการสนทนาโต้ตอบกับ AI ด้วยฟังก์ชันที่หลากหลายและปรับแต่งได้
 
 ---
 
